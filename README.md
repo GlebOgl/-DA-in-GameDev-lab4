@@ -34,6 +34,10 @@
 
 ## Задание 1
 ### в проекте Unity реализовать прецептрон, который умеет производить вычисления: OR, AND, NAND, XOR
+- создал проект юнити и подключил пустому объекту скрипт preceptron.cs
+- ![image](https://user-images.githubusercontent.com/79518116/204323357-d8361acb-cf49-4c22-b4f7-adcfa9328d04.png)
+
+
 ```C#
 using System.Collections;
 using System.Collections.Generic;
@@ -141,6 +145,19 @@ public class Preceptron : MonoBehaviour
     }
 }
 ```
+-задал количество тренировок равное 4
+-работа операции OR
+-![image](https://user-images.githubusercontent.com/79518116/204323943-fed21f31-4792-42ea-96ea-87003e8cbb09.png)
+-на 4 итерации прецептрон обучился и выдал верные результаты
+-работа AND
+-![image](https://user-images.githubusercontent.com/79518116/204324823-aa7def2b-4272-4cd9-b0a3-4cbb7975bd7f.png)
+-обучился только на 5 итерации(изменил количество тренировок до 8), верные результаты
+-работа NAND
+-![image](https://user-images.githubusercontent.com/79518116/204325424-27db2e46-8efd-4a95-89d8-39cd0fef1d3d.png)
+-обучился на 7, результаты правильные
+-работа XOR
+-![image](https://user-images.githubusercontent.com/79518116/204325675-2a4ee9c7-981c-479b-873b-a10f16989852.png)
+-не обучился, у операции не верные результаты, из-за того что линейная модель перцептрона не может правильно разделить одной линией плоскость XOR на нули и единицы
 ## Задание 2 
 ### построить графики зависимости количества эпох от ошибок обучения. Указать от чего зависит необходимое количество эпох
 -
