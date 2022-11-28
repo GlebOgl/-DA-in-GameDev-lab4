@@ -89,7 +89,7 @@ public class Preceptron : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Train(4);
+        Train(8);
 
         Debug.Log("Test 0 0: " + CalcOutput(0,0));
         Debug.Log("Test 0 1: " + CalcOutput(0,1));
