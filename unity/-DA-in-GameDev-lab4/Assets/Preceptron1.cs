@@ -9,12 +9,14 @@ public class TrainingSet
     public double output;
 }
 
-public class Preceptron : MonoBehaviour
+public class Preceptron1 : MonoBehaviour
 {
     public TrainingSet[] ts;
     double[] weights = {0,0};
     double bias = 0;
     double totalError = 0;
+
+   
 
     double DotProductBias(double[] v1, double[] v2)
     {
@@ -80,21 +82,43 @@ public class Preceptron : MonoBehaviour
             for (int t = 0; t < ts.Length; t++)
             {
                 UpdateWeights(t);
-                Debug.Log("W1: " + (weights[0]) + " W2: " + (weights[1]) + " B: " + bias);
+                //Debug.Log("W1: " + (weights[0]) + " W2: " + (weights[1]) + " B: " + bias);
             }
-            Debug.Log("TOTAL ERROR: " + totalError);
+            //Debug.Log("TOTAL ERROR: " + totalError);
         }
+    }
+
+    public double GetStatistics(int epochs, TrainingSet[] ts, int range)
+    {
+        var statArray = new double[range];
+        for (int i = 0; i < range; i++)
+        {
+            Train(epochs);
+            statArray[i] = totalError;
+        }
+        var res = 0.0;
+        foreach (var item in statArray)
+        {
+            res += item;
+        }
+        return res / range;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         Train(8);
 
         Debug.Log("Test 0 0: " + CalcOutput(0,0));
         Debug.Log("Test 0 1: " + CalcOutput(0,1));
         Debug.Log("Test 1 0: " + CalcOutput(1,0));
         Debug.Log("Test 1 1: " + CalcOutput(1,1));
+        */
+        for (var i = 1; i <= 5; i++)
+        {
+            Debug.Log(GetStatistics(i, ts, 100));
+        }
     }
 
     // Update is called once per frame
