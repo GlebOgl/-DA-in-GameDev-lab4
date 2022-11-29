@@ -160,7 +160,32 @@ public class Preceptron : MonoBehaviour
 -не обучился, у операции не верные результаты, из-за того что линейная модель перцептрона не может правильно разделить одной линией плоскость XOR на нули и единицы
 ## Задание 2 
 ### построить графики зависимости количества эпох от ошибок обучения. Указать от чего зависит необходимое количество эпох
--
+-метод для вычесления средней ошибки за количество эпох(5) среди range(100) повторений
+```C#
+public double GetStatistics(int epochs, TrainingSet[] ts, int range)
+    {
+        var statArray = new double[range];
+        for (int i = 0; i < range; i++)
+        {
+            Train(epochs);
+            statArray[i] = totalError;
+        }
+        var res = 0.0;
+        foreach (var item in statArray)
+        {
+            res += item;
+        }
+        return res / range;
+    }
+```
+-результатаы для OR
+-![image](https://user-images.githubusercontent.com/79518116/204494427-42d25781-4d82-4326-bf86-9de068901357.png)
+-результатаы для AND
+-![image](https://user-images.githubusercontent.com/79518116/204495549-46be8c96-afa1-4002-94ce-eabd43438098.png)
+-результатаы для NAND
+-![image](https://user-images.githubusercontent.com/79518116/204496923-942ad66d-cf30-4b88-a7bf-ad594249414f.png)
+-результатаы для XOR
+-![image](https://user-images.githubusercontent.com/79518116/204497468-1affa487-ef5a-4424-be08-2ef72d73298d.png)
 
 ## Задание 3
 ### построить визуальную модель работы прецептрона на сцене Unity
